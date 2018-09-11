@@ -14,7 +14,7 @@ public class JuglingAlgo {
 		int array[] = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
 		int displace = 3;
 		int modifiedArr[] = new int[array.length];
-		modifiedArr = rotateArray(array,displace,gcf(array.length,displace));
+		modifiedArr = rotateArrayWithJugglingAlgo(array,displace,gcf(array.length,displace));
 		for(int i = 0; i<modifiedArr.length; i++) {
 			System.out.print(modifiedArr[i]+" ");
 		}
@@ -28,7 +28,7 @@ public class JuglingAlgo {
 	 * @param gcf the gcf
 	 * @return the int[]
 	 */
-	private static int[] rotateArray(int[] array, int displace, int gcf) {
+	private static int[] rotateArrayWithJugglingAlgo(int[] array, int displace, int gcf) {
 		
 		int[] temp = new int[1];
 		for(int j = 0; j<displace; j++) {

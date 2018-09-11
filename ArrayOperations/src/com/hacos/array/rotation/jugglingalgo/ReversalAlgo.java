@@ -1,7 +1,5 @@
 package com.hacos.array.rotation.jugglingalgo;
 
-import java.util.Arrays;
-
 /*Idea of this algorithm is to first divide the main array in two parts, one from 0 to number of rotations to be performed and other is from number of rotations to the last array element.
 now reverse both the arrays, them merge them as they are and reverse the whole merged array again to find the final product.*/
 
@@ -12,18 +10,39 @@ public class ReversalAlgo {
 		int rotation = 3;
 		int modifiedArray[] = new int[array.length];
 		
-		modifiedArray = rotateReverseAlgo(array,rotation);
+		modifiedArray = rotateWithReverseAlgo(array,rotation);
 		
 		for(int i = 0; i<modifiedArray.length;i++) {
-		System.out.print(modifiedArray[i]);
+		System.out.print(modifiedArray[i]+" ");
 		}
 
 	}
 
-	private static int[] rotateReverseAlgo(int[] array, int rotation) {
+	private static int[] rotateWithReverseAlgo(int[] array, int rotation) {
+		reverse(array,0,rotation-1);
+		reverse(array,rotation,array.length-1);
+		reverse(array,0,array.length-1);
 		
+		return array;
+	}
+
+	//reversing array elements part by part
+	private static void reverse(int[] array, int start, int end) {
+		int count = 0;
+		while(true) {
+			int startIdx = start+count;
+			int btmIdx = end-count;
+			if(startIdx == btmIdx || ((btmIdx-startIdx)<0))
+			{
+				break;
+			}
+			int topElem = array[startIdx];
+			int btmElem = array[btmIdx];
+			array[start+count] = btmElem;
+			array[end-count] = topElem;
+			count++;
+		}
 		
-		return null;
 	}
 
 }

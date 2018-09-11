@@ -1,7 +1,15 @@
 package com.hacos.array.rotation.jugglingalgo;
 
+/**
+ * The Class JuglingAlgo.
+ */
 public class JuglingAlgo {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		int array[] = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
 		int displace = 3;
@@ -12,6 +20,14 @@ public class JuglingAlgo {
 		}
 	}
 
+	/**
+	 * Rotate array.
+	 *
+	 * @param array the array
+	 * @param displace the displace
+	 * @param gcf the gcf
+	 * @return the int[]
+	 */
 	private static int[] rotateArray(int[] array, int displace, int gcf) {
 		
 		int[] temp = new int[1];
@@ -32,6 +48,13 @@ public class JuglingAlgo {
 		return array;
 	}
 
+	/**
+	 * Gcf.
+	 *
+	 * @param length the length
+	 * @param displace the displace
+	 * @return the int
+	 */
 	private static int gcf(int length, int displace) {
 		int gcf = 0;
 		if(length==0) {

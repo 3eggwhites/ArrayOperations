@@ -11,12 +11,12 @@ public class JuglingAlgo {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		int array[] = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
-		int displace = 3;
+		int array[] = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+		int displace = 6;
 		int modifiedArr[] = new int[array.length];
-		modifiedArr = rotateArrayWithJugglingAlgo(array,displace,gcf(array.length,displace));
-		for(int i = 0; i<modifiedArr.length; i++) {
-			System.out.print(modifiedArr[i]+" ");
+		modifiedArr = rotateArrayWithJugglingAlgo(array, displace, gcf(displace, array.length));
+		for (int i = 0; i < modifiedArr.length; i++) {
+			System.out.print(modifiedArr[i] + " ");
 		}
 	}
 
@@ -29,22 +29,25 @@ public class JuglingAlgo {
 	 * @return the int[]
 	 */
 	private static int[] rotateArrayWithJugglingAlgo(int[] array, int displace, int gcf) {
-		
-		int[] temp = new int[1];
-		for(int j = 0; j<displace; j++) {
-			int swapPos = j;
-			temp[0] = array[j];
-			while(true) {
-			swapPos += gcf;
-			if(swapPos>array.length-1) {
-				array[swapPos-gcf] = temp[0];
-				break;
-			}else {
-				array[swapPos-gcf] = array[swapPos];
+
+		int temp, gettingSwapped, tobeSwapped;
+		for (int j = 0; j < gcf; j++) {
+			gettingSwapped = j;
+			temp = array[j];
+			while (true) {
+				tobeSwapped = gettingSwapped + displace;
+				if (tobeSwapped >= array.length) {
+					tobeSwapped = tobeSwapped - array.length;
+				}
+				if (tobeSwapped == j) {
+					break;
+				}
+				array[gettingSwapped] = array[tobeSwapped];
+				gettingSwapped = tobeSwapped;
 			}
-			}
+			array[gettingSwapped] = temp;
 		}
-		
+
 		return array;
 	}
 
@@ -55,14 +58,12 @@ public class JuglingAlgo {
 	 * @param displace the displace
 	 * @return the int
 	 */
-	private static int gcf(int length, int displace) {
-		int gcf = 0;
-		if(length==0) {
-			gcf = displace;
-		}else {
-			gcf = gcf((length%displace), displace);
+	private static int gcf(int displace, int length) {
+		if (length == 0) {
+			return displace;
+		} else {
+			return gcf(length, (displace % length));
 		}
-		return gcf;
 	}
 
 }

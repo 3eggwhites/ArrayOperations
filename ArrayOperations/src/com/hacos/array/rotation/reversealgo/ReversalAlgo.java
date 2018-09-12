@@ -1,4 +1,4 @@
-package com.hacos.array.rotation.jugglingalgo;
+package com.hacos.array.rotation.reversealgo;
 
 
 /* Idea of this algorithm is to first divide the main array in two parts, one from 0 to number of rotations to be performed and 

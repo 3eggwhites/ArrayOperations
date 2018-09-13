@@ -1,3 +1,6 @@
+/*
+ * @Author Ayan
+ */
 package com.hacos.array.rotation.jugglingalgo;
 
 /**
@@ -54,8 +57,8 @@ public class JuglingAlgo {
 	/**
 	 * Gcf.
 	 *
-	 * @param length the length
 	 * @param displace the displace
+	 * @param length the length
 	 * @return the int
 	 */
 	private static int gcf(int displace, int length) {

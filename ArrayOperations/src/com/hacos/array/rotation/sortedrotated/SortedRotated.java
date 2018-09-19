@@ -31,7 +31,7 @@ public class SortedRotated {
 	 *
 	 * @param array the array
 	 * @param pivotIdx the pivot idx
-	 * @param searchDigit
+	 * @param searchDigit the search digit
 	 */
 	private static void performSearch(int[] array, int pivotIdx, int searchDigit) {
 		int leftArr[] = new int[pivotIdx + 1];
@@ -53,6 +53,15 @@ public class SortedRotated {
 		System.out.println(searchElemIdx);
 	}
 
+	/**
+	 * Perform BS.
+	 *
+	 * @param searchArray the search array
+	 * @param left the left
+	 * @param right the right
+	 * @param x the x
+	 * @return the int
+	 */
 	private static int performBS(int[] searchArray, int left, int right, int x) {
 		if (right >= left) {
 			int mid = left + (right - left) / 2;
